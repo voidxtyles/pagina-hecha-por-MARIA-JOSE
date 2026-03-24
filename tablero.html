@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>hecho por MARIA JOSE</title>
+
+<style>
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #0b1c3d;
+    color: white;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 80%;
+    margin: auto;
+}
+
+.category {
+    background: #1e3a8a;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.cell {
+    background: #0f2a66;
+    padding: 25px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.cell:hover {
+    background: #2563eb;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(11,28,61,0.95);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1e3a8a;
+    padding: 30px;
+    border-radius: 15px;
+    width: 60%;
+    text-align: center;
+}
+
+.modal-content p {
+    font-size: 22px;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 25px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Tablón de Reality</h1>
+
+<div class="board">
+
+<div class="category">Historia</div>
+<div class="category">Bajo Presión</div>
+<div class="category">Cultura Musical</div>
+<div class="category">Trotamundos</div>
+
+<!-- 100 -->
+<div class="cell" onclick="mostrar(this,'¿Cómo se llamó el supercontinente que unía a los 5 continentes?')">100</div>
+<div class="cell" onclick="mostrar(this,'Menciona 7 frutas en 15 segundos')">100</div>
+<div class="cell" onclick="mostrar(this,'Canción del 2022: Moscow Mule - Bad Bunny')">100</div>
+<div class="cell" onclick="mostrar(this,'¿Cuál es el país más grande del Caribe?')">100</div>
+
+<!-- 300 -->
+<div class="cell" onclick="mostrar(this,'¿Qué estructura dividió a la ciudad de Berlín en dos partes durante la Guerra Fría, separando Alemania Oriental y Occidental?')">300</div>
+<div class="cell" onclick="mostrar(this,'Menciona 10 países americanos en 25 segundos')">300</div>
+<div class="cell" onclick="mostrar(this,'Canción del 2023: Una Bala')">300</div>
+<div class="cell" onclick="mostrar(this,'¿Con qué países hace frontera Estados Unidos?')">300</div>
+
+<!-- 600 -->
+<div class="cell" onclick="mostrar(this,'¿En qué año la NASA logró llevar por primera vez a humanos a la Luna durante la misión Apolo 11?')">600</div>
+<div class="cell" onclick="mostrar(this,'Di 10 videojuegos modernos en 15 segundos')">600</div>
+<div class="cell" onclick="mostrar(this,'Canción del 2019: Blinding Lights - The Weeknd')">600</div>
+<div class="cell" onclick="mostrar(this,'Menciona los países que hablan chino o mandarín')">600</div>
+
+<!-- 1000 -->
+<div class="cell" onclick="mostrar(this,'¿Qué acontecimiento histórico marcó el fin de la Edad Antigua en Europa y dio inicio a la Edad Media?')">1000</div>
+<div class="cell" onclick="mostrar(this,'Menciona 15 celebridades que tengan más de 1 millón de seguidores en cualquier plataforma en 30 segundos')">1000</div>
+<div class="cell" onclick="mostrar(this,'Canción del 2009: Billie Jean - Michael Jackson')">1000</div>
+<div class="cell" onclick="mostrar(this,'¿De qué país es esta silueta?')">1000</div>
+
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="cerrar()">&times;</span>
+        <p id="texto"></p>
+    </div>
+</div>
+
+<script>
+function mostrar(celda, texto) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("texto").innerText = texto;
+
+    celda.style.background = "gray";
+    celda.style.pointerEvents = "none";
+}
+
+function cerrar(){
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
